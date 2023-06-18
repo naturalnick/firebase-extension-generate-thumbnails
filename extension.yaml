@@ -54,22 +54,22 @@ params:
    - param: VIDEO_PATH
      label: Video Path
      description: >-
-        The folder that's monitored for new videos. Enter '~' for all directories.
+        The folder that's monitored for new videos. Enter '~' for all directories. Enter '/' for root directory.
      type: string
      default: /
-     required: false
-   #   validationRegex: "^\/|[-a-zA-Z0-9_ ~]+$"
-   #   validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
+     required: true
+     validationRegex: "^(\/[-a-zA-Z0-9_]+)?(?:\/[-a-zA-Z0-9_]+)*$"
+     validationErrorMessage: Must be '/', '~', or a valid path ending with a forward slash (e.g. path/to/thumbnails/)
 
    - param: THUMBNAIL_PATH
      label: Thumbnail Path
      description: >-
-        Path to store thumbnails in the bucket. Enter '~' for same directory as the video.
+        Path to store thumbnails in the bucket. Enter '~' for same directory as the video. Enter '/' for root directory.
      type: string
-     default: thumbnails/
-     required: false
-   #   validationRegex: "^\/|[-a-zA-Z0-9_ ~]+$"
-   #   validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
+     default: /
+     required: true
+     validationRegex: "^(\/[-a-zA-Z0-9_]+)?(?:\/[-a-zA-Z0-9_]+)*$"
+     validationErrorMessage: Must be '/', '~', or a valid path ending with a forward slash (e.g. path/to/thumbnails/)
 
    - param: THUMBNAIL_PREFIX
      label: Thumbnail Prefix
@@ -77,7 +77,7 @@ params:
         String to append to the front of the image name
      type: string
      required: false
-     example: thumbnail_
+     default: thumbnail_
      validationRegex: "^[a-zA-Z0-9_-]+$"
      validationErrorMessage: Can only contain numbers, letters, underscores and hyphens
 

@@ -1,3 +1,8 @@
+## Version 0.0.1 -rc.5
+
+Add path validation back in, with clearer instructions.
+Update icon
+
 ## Version 0.0.1 -rc.4
 
 Update icon
