@@ -79,7 +79,7 @@ async function takeScreenshot(videoFilePath, newFileName) {
          .takeScreenshots(
             {
                count: 1,
-               timestamps: [process.env.TIMESTAMP], //in seconds
+               timestamps: Number([process.env.TIMESTAMP]), //in seconds
                filename: newFileName
             },
             os.tmpdir()
