@@ -22,8 +22,7 @@ billingRequired: true
 
 roles:
    - role: storage.admin
-     reason: Needed in order to add new images into this storage bucket
-     resource: projects/${PROJECT_ID}/buckets/${param:YOUR_BUCKET}
+     reason: Allows this extension to access videos and add images to Cloud Storage
 
 resources:
    - name: generateThumbnail
