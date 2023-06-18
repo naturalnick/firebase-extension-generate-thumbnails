@@ -55,8 +55,8 @@ params:
      type: string
      default: /
      required: false
-     validationRegex: "^(\/|[a-zA-Z0-9_ -]+)$"
-     validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
+   #   validationRegex: "^\/|[-a-zA-Z0-9_ ~]+$"
+   #   validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
 
    - param: THUMBNAIL_PATH
      label: Thumbnail Path
@@ -65,8 +65,8 @@ params:
      type: string
      default: thumbnails/
      required: false
-     validationRegex: "^(\/|[a-zA-Z0-9_ -]+)$"
-     validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
+   #   validationRegex: "^\/|[-a-zA-Z0-9_ ~]+$"
+   #   validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
 
    - param: THUMBNAIL_PREFIX
      label: Thumbnail Prefix
