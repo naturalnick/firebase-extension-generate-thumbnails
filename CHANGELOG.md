@@ -1,5 +1,9 @@
-## Version 0.0.1
+## Version 0.0.1-rc.3
+
+Add extension icon.
+Fix prefix and suffix showing as undefined in the image name.
+
+## Version 0.0.1-rc.4
 
 Update icon
-Fix prefix and suffix showing as undefined in the image name.
-Fix image directory issues
+Fix image directory issue
