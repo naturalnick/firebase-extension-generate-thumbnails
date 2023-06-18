@@ -36,8 +36,10 @@ exports.generateThumbnail = storage.object().onFinalize(async (object, context) 
 
       const localThumbFilePath = path.join(os.tmpdir(), thumbfileName);
 
-      const newPath = process.env.THUMBNAIL_PATH === "~" ? dir + "/" : process.env.THUMBNAIL_PATH;
-      const cloudThumbFilePath = path.join(newPath, thumbfileName);
+      const cloudThumbFilePath = path.join(
+         getThumbnailPath(process.env.THUMBNAIL_PATH, dir),
+         thumbfileName
+      );
 
       await takeScreenshot(tempFilePath, thumbfileName);
 
@@ -103,4 +105,10 @@ function checkVideoDirectory(dir) {
 function removeFileExtension(filename) {
    const lastDotIndex = filename.lastIndexOf(".");
    return filename.substring(0, lastDotIndex);
+}
+
+function getThumbnailPath(pathString, altDir) {
+   if (!pathString || pathString === "/") return "";
+   if (pathString === "~") return altDir + "/";
+   return pathString;
 }
