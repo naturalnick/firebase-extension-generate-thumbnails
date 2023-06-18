@@ -30,11 +30,9 @@ exports.generateThumbnail = storage.object().onFinalize(async (object, context) 
 
       if (!fs.existsSync(tempFilePath)) throw "Could not locate downloaded file";
 
-      const thumbfileName =
-         process.env.THUMBNAIL_PREFIX +
-         removeFileExtension(fileName) +
-         process.env.THUMBNAIL_SUFFIX +
-         ".png";
+      const prefix = process.env?.THUMBNAIL_PREFIX ? process.env.THUMBNAIL_PREFIX : "";
+      const suffix = process.env?.THUMBNAIL_SUFFIX ? process.env.THUMBNAIL_SUFFIX : "";
+      const thumbfileName = prefix + removeFileExtension(fileName) + suffix + ".png";
 
       const localThumbFilePath = path.join(os.tmpdir(), thumbfileName);
 
