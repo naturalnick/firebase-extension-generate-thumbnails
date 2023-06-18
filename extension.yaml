@@ -1,0 +1,114 @@
+# Learn detailed information about the fields of an extension.yaml file in the docs:
+# https://firebase.google.com/docs/extensions/reference/extension-yaml
+
+name: generate-thumbnails # Identifier for your extension
+version: 0.0.1 # Follow semver versioning
+specVersion: v1beta # Version of the Firebase Extensions specification
+
+displayName: Generate Thumbnails
+
+description: >-
+   Create thumbnails from uploaded videos
+
+author:
+   authorName: Nick Schaefer
+   url: https://www.nschaefer.com
+
+license: Apache-2.0
+
+sourceUrl: https://github.com/naturalnick/firebase-extension-generate-thumbnails
+
+billingRequired: true
+
+roles:
+   - role: storage.admin
+     reason: Needed in order to add new images into this storage bucket
+     resource: projects/${PROJECT_ID}/buckets/${param:YOUR_BUCKET}
+
+resources:
+   - name: generateThumbnail
+     type: firebaseextensions.v1beta.function
+     description: >-
+        Storage-upload triggered function that responds by creating a thumbnail if the file is a video
+     properties:
+        eventTrigger:
+           eventType: google.storage.object.finalize
+           resource: projects/_/buckets/${param:YOUR_BUCKET}
+        runtime: "nodejs18"
+        availableMemoryMb: 1024
+
+params:
+   - param: YOUR_BUCKET
+     label: Storage Bucket
+     description: >-
+        Your cloud storage bucket
+     default: ${STORAGE_BUCKET}
+     type: selectResource
+     resourceType: storage.googleapis.com/Bucket
+     required: true
+     immutable: true
+
+   - param: VIDEO_PATH
+     label: Video Path
+     description: >-
+        The folder that's monitored for new videos. Enter '~' for all directories.
+     type: string
+     default: /
+     required: false
+     validationRegex: "^(\/|[a-zA-Z0-9_ -]+)$"
+     validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
+
+   - param: THUMBNAIL_PATH
+     label: Thumbnail Path
+     description: >-
+        Path to store thumbnails in the bucket. Enter '~' for same directory as the video.
+     type: string
+     default: thumbnails/
+     required: false
+     validationRegex: "^(\/|[a-zA-Z0-9_ -]+)$"
+     validationErrorMessage: Must be a valid path ending with a '/', e.g. path/to/thumbnails/
+
+   - param: THUMBNAIL_PREFIX
+     label: Thumbnail Prefix
+     description: >-
+        String to append to the front of the image name
+     type: string
+     required: false
+     example: thumbnail_
+     validationRegex: "^[a-zA-Z0-9_-]+$"
+     validationErrorMessage: Can only contain numbers, letters, underscores and hyphens
+
+   - param: THUMBNAIL_SUFFIX
+     label: Thumbnail Suffix
+     description: >-
+        String to append to the end of the image name
+     type: string
+     required: false
+     validationRegex: "^[a-zA-Z0-9_-]+$"
+     validationErrorMessage: Can only contain numbers, letters, underscores and hyphens
+
+   - param: ASPECT_RATIO
+     label: Aspect ratio
+     description: >-
+        Aspect ratio to capture the thumbnail. Should match or be as close to video aspect ratio as possible. Otherwise the thumbnail make be distorted.
+     default: 16:9
+     type: multiselect
+     options:
+        - label: 16:9 (widescreen/hd)
+          value: "16:9"
+        - label: 4:3 (fullscreen/standard)
+          value: "4:3"
+        - label: 1:1 (square)
+          value: "1:1"
+        - label: 9:16 (mobile/social media)
+          value: "9:16"
+        - label: 21:9 (ultra-wide)
+          value: "21:9"
+
+   - param: TIMESTAMP
+     label: Timestamp
+     description: >-
+        Number of seconds into video to generate timestamp
+     type: number
+     default: 1
+     required: true

@@ -1,0 +1,17 @@
+{
+  "emulators": {
+    "functions": {
+      "port": 5003
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true,
+    "storage": {
+      "port": 9199
+    }
+  },
+  "extensions": {
+    "generate-thumbnails": "../.."
+  }
+}
