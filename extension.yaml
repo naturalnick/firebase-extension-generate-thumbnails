@@ -9,7 +9,7 @@ displayName: Generate Thumbnails
 
 description: >-
    Create thumbnails from uploaded videos
-
+icon: icon.png
 author:
    authorName: Nick Schaefer
    url: https://www.nschaefer.com
