@@ -30,10 +30,10 @@ Whenever you upload an image file to `${param:YOUR_BUCKET}` in the path `${param
 
 -  Detects if the file is a video
 -  Checks to see if the video is in the `${param:VIDEO_PATH}` directory
--  Takes a screenshot `${param:TIMESTAMP}` seconds into the video
+-  Takes a screenshot `${param:TIMESTAMP}` second(s) into the video
 -  Sets the name of the file based on the video filename and a prefix or suffix if provided
 -  Stores the generated image (png) in the `${param:THUMBNAIL_PATH}` directory in your Storage bucket
 
-# Monitoring
+### Monitoring
 
 As a best practice, you can [monitor the activity](https://firebase.google.com/docs/extensions/manage-installed-extensions#monitor) of your installed extension, including checks on its health, usage, and logs.
