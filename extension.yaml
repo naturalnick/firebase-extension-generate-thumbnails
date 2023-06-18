@@ -58,8 +58,6 @@ params:
      type: string
      default: /
      required: true
-     validationRegex: "^(\/[-a-zA-Z0-9_]+)?(?:\/[-a-zA-Z0-9_]+)*$"
-     validationErrorMessage: Must be '/', '~', or a valid path ending with a forward slash (e.g. path/to/thumbnails/)
 
    - param: THUMBNAIL_PATH
      label: Thumbnail Path
@@ -68,8 +66,6 @@ params:
      type: string
      default: /
      required: true
-     validationRegex: "^(\/[-a-zA-Z0-9_]+)?(?:\/[-a-zA-Z0-9_]+)*$"
-     validationErrorMessage: Must be '/', '~', or a valid path ending with a forward slash (e.g. path/to/thumbnails/)
 
    - param: THUMBNAIL_PREFIX
      label: Thumbnail Prefix

@@ -1,5 +1,13 @@
 ## Version 0.0.1 -rc.5
 
+Remove path validation
+
+## Version 0.0.1 -rc.5
+
+Another attempt at validating paths -failed
+
+## Version 0.0.1 -rc.5
+
 Add path validation back in, with clearer instructions.
 Update icon
 
