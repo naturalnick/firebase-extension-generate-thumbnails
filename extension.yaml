@@ -20,6 +20,10 @@ sourceUrl: https://github.com/naturalnick/firebase-extension-generate-thumbnails
 
 billingRequired: true
 
+apis:
+   - apiName: storage-component.googleapis.com
+     reason: Needed to use Cloud Storage
+
 roles:
    - role: storage.admin
      reason: Allows this extension to access videos and add images to Cloud Storage
