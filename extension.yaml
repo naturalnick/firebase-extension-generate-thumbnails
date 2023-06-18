@@ -92,7 +92,7 @@ params:
      description: >-
         Aspect ratio to capture the thumbnail. Should match or be as close to video aspect ratio as possible. Otherwise the thumbnail make be distorted.
      default: 16:9
-     type: multiselect
+     type: select
      options:
         - label: 16:9 (widescreen/hd)
           value: "16:9"
@@ -109,6 +109,8 @@ params:
      label: Timestamp
      description: >-
         Number of seconds into video to generate timestamp
-     type: number
+     type: string
      default: 1
      required: true
+     validationRegex: "^[0-9]+$"
+     validationErrorMessage: Must be a whole, positive number
