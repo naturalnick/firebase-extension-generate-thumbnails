@@ -13,21 +13,21 @@
 #  limitations under the License.
 
 name: generate-thumbnails # Identifier for your extension
+displayName: Generate Thumbnails
 version: 0.0.1 # Follow semver versioning
 specVersion: v1beta # Version of the Firebase Extensions specification
 
-displayName: Generate Thumbnails
-
 description: >-
    Create thumbnails from uploaded videos
+tags: [video, thumbnail, image, capture]
 icon: icon.png
 author:
    authorName: Nick Schaefer
+   email: wildernns@gmail.com
    url: https://www.nschaefer.com
-
 license: Apache-2.0
-
 sourceUrl: https://github.com/naturalnick/firebase-extension-generate-thumbnails
+releaseNotesUrl: https://github.com/naturalnick/firebase-extension-generate-thumbnails/blob/main/CHANGELOG.md
 
 billingRequired: true
 
