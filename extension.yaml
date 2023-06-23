@@ -86,6 +86,19 @@ params:
      validationRegex: "^[a-zA-Z0-9_-]+$"
      validationErrorMessage: Can only contain numbers, letters, underscores and hyphens
 
+   - param: IMAGE_TYPE
+     label: Thumbnail File Format
+     description: >-
+        Image file format to save the thumbnails as
+     type: select
+     default: png
+     required: true
+     options:
+        - label: png
+          value: png
+        - label: jpeg
+          value: jpeg
+
    - param: ASPECT_RATIO
      label: Aspect ratio
      description: >-
