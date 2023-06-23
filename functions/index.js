@@ -20,7 +20,7 @@ exports.generateThumbnail = storage.object().onFinalize(async (object, context) 
    const dir = path.dirname(filePath);
    const fileName = path.basename(filePath);
 
-   if (!checkVideoDirectory(dir) || !contentType.includes("video/")) return;
+   if (!checkVideoDirectory(dir, process.env.VIDEO_PATH) || !contentType.includes("video/")) return;
 
    try {
       const bucket = getStorage().bucket(fileBucket);
@@ -32,7 +32,8 @@ exports.generateThumbnail = storage.object().onFinalize(async (object, context) 
 
       const prefix = process.env?.THUMBNAIL_PREFIX ? process.env.THUMBNAIL_PREFIX : "";
       const suffix = process.env?.THUMBNAIL_SUFFIX ? process.env.THUMBNAIL_SUFFIX : "";
-      const thumbfileName = prefix + removeFileExtension(fileName) + suffix + ".png";
+      const thumbfileName =
+         prefix + removeFileExtension(fileName) + suffix + "." + process.env.IMAGE_TYPE;
 
       const localThumbFilePath = path.join(os.tmpdir(), thumbfileName);
 
@@ -48,7 +49,7 @@ exports.generateThumbnail = storage.object().onFinalize(async (object, context) 
       await bucket.upload(localThumbFilePath, {
          destination: cloudThumbFilePath,
          metadata: {
-            contentType: "image/png",
+            contentType: `image/${process.env.IMAGE_TYPE}`,
             metadata: {
                firebaseStorageDownloadTokens: uuidv4()
             }
@@ -88,14 +89,13 @@ async function takeScreenshot(videoFilePath, newFileName) {
    });
 }
 
-function checkVideoDirectory(dir) {
-   const VIDEO_PATH = process.env.VIDEO_PATH;
-   const trimmedPath = VIDEO_PATH.replace(/^\/|\/$/g, "");
-   const trimmedDir = dir.replace(/^\/|\/$/g, "");
+function checkVideoDirectory(dir, videoPath) {
+   const trimmedPath = videoPath?.replace(/^\/|\/$/g, "");
+   const trimmedDir = dir?.replace(/^\/|\/$/g, "");
 
    if (
-      VIDEO_PATH === "~" ||
-      (["", ".", "/"].includes(VIDEO_PATH) && dir === ".") ||
+      videoPath === "~" ||
+      (["", ".", "/"].includes(videoPath) && dir === ".") ||
       trimmedPath == trimmedDir
    ) {
       return true;
@@ -107,8 +107,10 @@ function removeFileExtension(filename) {
    return filename.substring(0, lastDotIndex);
 }
 
-function getThumbnailPath(pathString, altDir) {
+function getThumbnailPath(pathString, videoPath) {
    if (!pathString || pathString === "/") return "";
-   if (pathString === "~") return altDir + "/";
+   if (pathString === "~") return videoPath + "/";
    return pathString;
 }
+
+module.exports = { getThumbnailPath, removeFileExtension, checkVideoDirectory };

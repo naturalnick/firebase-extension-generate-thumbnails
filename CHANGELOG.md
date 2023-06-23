@@ -1,34 +1,3 @@
-## Version 0.0.1 -rc.5
-
-Remove path validation
-
-## Version 0.0.1 -rc.5
-
-Another attempt at validating paths -failed
-
-## Version 0.0.1 -rc.5
-
-Add path validation back in, with clearer instructions.
-Update icon
-
-## Version 0.0.1 -rc.4
-
-Update icon
-Fix image directory issue
-
-## Version 0.0.1 -rc.3
-
-Add extension icon.
-Fix prefix and suffix showing as undefined in the image name.
-
-## Version 0.0.1 -rc.2
-
-Fix issue with ffmeg timestamp
-
-## Version 0.0.1 -rc.2
-
-Fix issue with IAM roles
-
 ## Version 0.0.1
 
 Initial upload

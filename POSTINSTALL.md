@@ -18,7 +18,7 @@ You can test out this extension right away!
 
 1. Upload an image file to the bucket: `${param:YOUR_BUCKET}` in the path `${param:VIDEO_PATH}`
 
-1. After the video is fully uploaded, wait a few seconds and the generated image appear in the same bucket at the specified path.
+1. After the video is fully uploaded, wait a few seconds and the generated image will appear in the thumbnail path `${param:THUMBNAIL_PATH}`.
 
    Note that you might need to refresh the page to see changes.
 
@@ -31,8 +31,8 @@ Whenever you upload an image file to `${param:YOUR_BUCKET}` in the path `${param
 -  Detects if the file is a video
 -  Checks to see if the video is in the `${param:VIDEO_PATH}` directory
 -  Takes a screenshot `${param:TIMESTAMP}` second(s) into the video
--  Sets the name of the file based on the video filename and a prefix or suffix if provided
--  Stores the generated image (png) in the `${param:THUMBNAIL_PATH}` directory in your Storage bucket
+-  Sets the name of the file based on the video filename and a prefix and/or suffix if provided, and the file type of the image `${param:IMAGE_TYPE}`
+-  Stores the generated image in the `${param:THUMBNAIL_PATH}` directory in your Storage bucket
 
 ### Monitoring
 
