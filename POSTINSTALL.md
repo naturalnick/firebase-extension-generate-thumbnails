@@ -34,6 +34,8 @@ Whenever you upload an image file to `${param:YOUR_BUCKET}` in the path `${param
 -  Sets the name of the file based on the video filename and a prefix and/or suffix if provided, and the file type of the image `${param:IMAGE_TYPE}`
 -  Stores the generated image in the `${param:THUMBNAIL_PATH}` directory in your Storage bucket
 
+Please note: Video and image processing requires more memory usage than typical cloud functions. For this reason generating thumbnails for large videos (over 200 MB) may fail if not enough memory is allocated for this function. I recommend at least 1 GB (1024 MB) memory allocation for videos under or around 200 MB. The memory allocation setting is in the advanced settings of this extension.
+
 ### Monitoring
 
 As a best practice, you can [monitor the activity](https://firebase.google.com/docs/extensions/manage-installed-extensions#monitor) of your installed extension, including checks on its health, usage, and logs.
