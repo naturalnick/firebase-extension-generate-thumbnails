@@ -1,12 +1,3 @@
-<!--
-This file provides your users an overview of your extension. All content is optional, but this is the recommended format. Your users will see the contents of this file when they run the `firebase ext:info` command.
-
-Include any important functional details as well as a brief description for any additional setup required by the user (both pre- and post-installation).
-
-Learn more about writing a PREINSTALL.md file in the docs:
-https://firebase.google.com/docs/extensions/publishers/user-documentation#writing-preinstall
--->
-
 Use this extension to generate thumbnails from videos uploaded to Firebase Storage.
 
 When you upload a file to your specified Cloud Storage bucket, this extension:
