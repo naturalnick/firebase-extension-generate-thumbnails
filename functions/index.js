@@ -126,5 +126,3 @@ function getThumbnailPath(pathString, videoPath) {
    if (pathString === "~") return videoPath + "/";
    return pathString;
 }
-
-module.exports = { getThumbnailPath, removeFileExtension, checkVideoDirectory };
