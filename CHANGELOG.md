@@ -1,6 +1,6 @@
 ## Version 0.0.2
 
-Version 0.0.1 deploy failed - f
+fix 0.0.1 install failure due to conflicting exports
 
 ## Version 0.0.1
 
