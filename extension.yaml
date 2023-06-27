@@ -12,8 +12,8 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-name: generate-thumbnails # Identifier for your extension
-version: 0.0.2 # Follow semver versioning
+name: storage-generate-thumbnails # Identifier for your extension
+version: 0.0.3 # Follow semver versioning
 specVersion: v1beta # Version of the Firebase Extensions specification
 
 displayName: Generate Thumbnails
@@ -35,7 +35,7 @@ apis:
      reason: Needed to use Cloud Storage
 
 roles:
-   - role: storage.admin
+   - role: storage.objectAdmin
      reason: Allows this extension to access videos and add images to Cloud Storage
 
 resources:
