@@ -118,8 +118,10 @@ function checkVideoDirectory(dir, videoPath) {
 
 function removeFileExtension(filename) {
    const lastDotIndex = filename.lastIndexOf(".");
+   if (lastDotIndex === -1) return filename; // If no dot is found, return the same name
    return filename.substring(0, lastDotIndex);
 }
+
 
 function getThumbnailPath(pathString, videoPath) {
    if (!pathString || pathString === "/") return "";
