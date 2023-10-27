@@ -83,7 +83,6 @@ params:
         String to append to the front of the image name
      type: string
      required: false
-     default: thumbnail_
      validationRegex: "^[a-zA-Z0-9_-]+$"
      validationErrorMessage: Can only contain numbers, letters, underscores and hyphens
 
