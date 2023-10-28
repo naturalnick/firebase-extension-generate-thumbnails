@@ -19,6 +19,6 @@ This extension uses other Firebase or Google Cloud Platform services which may h
 -  Cloud Functions
 -  Cloud Storage
 
-Videos with larger file sizes may require a higher memory usage resulting in . You may need to increase the available memory for your function to accomodate processing larger files.
+Videos with larger file sizes may require a higher memory usage resulting in increased billing usage. You may need to increase the available memory for your function to accomodate processing larger files.
 
 When you use Firebase Extensions, you're only charged for the underlying resources that you use. A paid-tier billing plan is only required if the extension uses a service that requires a paid-tier plan, for example calling to a Google Cloud Platform API or making outbound network requests to non-Google services. All Firebase services offer a free tier of usage. [Learn more about Firebase billing.](https://firebase.google.com/pricing)

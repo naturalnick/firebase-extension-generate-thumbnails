@@ -5,3 +5,7 @@ Initial upload with new project name/id with changes made from review rejection 
 ## Version 0.0.2
 
 Fix bug if filename has no extension.
+
+## Version 0.0.3
+
+Set default thumbnail prefix to empty for default.
