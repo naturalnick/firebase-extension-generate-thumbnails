@@ -46,6 +46,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+functions/node_modules
 
 # Optional npm cache directory
 .npm
@@ -67,3 +68,5 @@ node_modules/
 
 # prettier setup
 .prettierrc
+
+.DS_Store
