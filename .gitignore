@@ -70,3 +70,4 @@ functions/node_modules
 .prettierrc
 
 .DS_Store
+SETUP.md
