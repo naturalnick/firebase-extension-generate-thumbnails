@@ -30,7 +30,7 @@ initializeApp();
 exports.generateThumbnail = storage.object().onFinalize(async (object, context) => {
    const fileBucket = object.bucket;
    const filePath = object.name;
-   const contentType = object.contentType;
+   const contentType = object.contentType || "";
    const dir = path.dirname(filePath);
    const fileName = path.basename(filePath);
 
