@@ -9,3 +9,7 @@ Fix bug if filename has no extension.
 ## Version 0.0.3
 
 Set default thumbnail prefix to empty for default.
+
+## Version 0.0.4
+
+Bug fix: Handling of missing contentType (@kdawgwilk)
