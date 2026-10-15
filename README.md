@@ -1,3 +1,7 @@
+## Deprecated / unmaintained
+
+This project is no longer maintained. Firebase Extensions management is scheduled to shut down on March 31, 2027. New projects should avoid installing this extension. Existing users should review [Firebase’s migration guidance](https://firebase.google.com/docs/extensions/users/migrate) and plan to manage their thumbnail-processing function independently. No replacement or further updates are planned for this repository. You’re welcome to fork the code under its existing license.
+
 ### Generate Thumbnails extension
 
 Use this extension to generate thumbnails from videos uploaded to Firebase Storage.
